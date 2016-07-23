@@ -22,7 +22,7 @@ class Provider(models.Model):
 	p_regions = models.ManyToManyField(Region)
 
 	def __unicode__(self):
-		return u'%s %s' % (sel.provider_id, self.p_company_name)
+		return u'%s %s' % (self.provider_id, self.p_company_name)
 		
 		
 		
