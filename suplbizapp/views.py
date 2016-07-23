@@ -11,6 +11,9 @@ from .models import Region
 def home(request):
     return render(request, 'index.html', {})
 
+def company_p1(request):
+    return render(request, 'company_p1.html', {})
+
 def  search(request):	
 	form = {}
 	errors = []
@@ -35,8 +38,6 @@ def  search(request):
 
 			print (providers_list)
 			
-
-
 
 			template = loader.get_template('index.html')
 			context = RequestContext(request, {'providers_list': providers_list,})

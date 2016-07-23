@@ -27,7 +27,7 @@
             <div>
             {% for item in providers_list %}    
                 <ul>
-                    <li>{{ item.p_company_name }}</li>
+                    <li><a href="{{ item.get_url }}">{{ item.p_company_name }}</a></li>
                 </ul>
             {% endfor %}
             </div>
