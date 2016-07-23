@@ -20,9 +20,17 @@
             <form action="/search/" method="post">
                 {% csrf_token %}
                 {{form}}
-                <input type="text"name="tag" maxlength="10" value="{{form.tag}}">
+                <input type="text" name="client" maxlength="50" value="{{form.client}}">
                 <button id="search" >Поиск</button>
             </form>
+
+            <div>
+            {% for item in providers_list %}    
+                <ul>
+                    <li>{{ item.p_company_name }}</li>
+                </ul>
+            {% endfor %}
+            </div>
 
            
         </body>
