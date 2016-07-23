@@ -12,7 +12,9 @@ def home(request):
     return render(request, 'index.html', {})
 
 def company_p1(request):
-    return render(request, 'company_p1.html', {})
+	provider = Provider.objects.get(p_company_name='company_p1')
+	regions = provider.p_regions.all()
+	return render(request, 'company_p1.html', {'regions': regions,})
 
 def  search(request):	
 	form = {}

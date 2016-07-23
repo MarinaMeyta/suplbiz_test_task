@@ -6,7 +6,7 @@ class Region(models.Model):
 	region_name = models.TextField(max_length=50)
 
 	def __unicode__(self):
-		return u'%s %s' % (self.region_id, self.region_name)
+		return u'%s' % (self.region_name)
 
 class Client(models.Model):
 	client_id = models.AutoField(primary_key = True)

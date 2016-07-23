@@ -1,0 +1,26 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <link rel="stylesheet" href="{% static "css/base_css.css" %}"> -->
+    </head>
+    
+    <body>
+    	<div>
+    		<h>Provider company_p1</h>
+    	</div>
+    	<div>
+    		<ul>
+	    	{% for item in regions %}
+	    		<li>{{ item.region_name }}</li>
+	    	{% endfor %}
+    		</ul>
+    	</div>
+    	<div>
+    		<h2><a href="/">back</a></h2>
+    	</div>
+    </body>
+ </html>
