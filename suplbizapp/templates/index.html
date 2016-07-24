@@ -16,6 +16,7 @@
                     {% endfor %}
                 </ol>
             {% endif %} -->
+            <p>Введите название компании заказчика:</p>
 
             <form action="/search/" method="post">
                 {% csrf_token %}
@@ -25,6 +26,7 @@
             </form>
 
             <div>
+                <p>Доступные поставщики:</p>
                 {% for item in providers_list %}   
                     <ul>
                         <li><a href="company_info/{{item.p_company_name}}">{{ item.p_company_name }}</a></li>

@@ -10,9 +10,10 @@
     
     <body>
     	<div>
-    		<h>Provider {{ company_name }}</h>
+    		<h>Поставщик {{ company_name }}</h>
     	</div>
     	<div>
+            <p>Регионы:</p>
     		<ul>
 	    	{% for item in regions %}
 	    		<li>{{ item.region_name }}</li>
@@ -20,7 +21,7 @@
     		</ul>
     	</div>
     	<div>
-    		<h2><a href="/">back</a></h2>
+    		<h2><a href="/search/">back</a></h2>
     	</div>
     </body>
  </html>
