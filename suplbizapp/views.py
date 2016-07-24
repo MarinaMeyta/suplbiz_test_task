@@ -31,16 +31,21 @@ def company_info(request, company_name):
 def  search(request):	
 	form = {}
 	errors = []
+	
 	try:
 		if request.method=='POST':
 			form['client'] = request.POST.get('client')
 			if not form['client']:
 				errors.append('Errors')
-			# print (form['client'])
+				print errors
+				return home(request)
 			
-			client = Client.objects.get(c_company_name=form['client']) #filter(company_name = form['client'])
+
+			client = Client.objects.get(c_company_name=form['client']) 
+		
+
 			print (client.__unicode__())
-			# print (client.c_regions.all())
+
 
 			providers_list = set()
 			providers_all = Provider.objects.all()
@@ -56,8 +61,11 @@ def  search(request):
 			context = RequestContext(request, {'providers_list': providers_list,})
 			return HttpResponse(template.render(context))
 		return home(request)
-
-	except Provider.DoesNotExist, Client.DoesNotExist:
-		print ('DoesNotExist')
-		# return render(request, 'index.html', {})
-		return HttpResponse(request, 'index.html', {})
+		
+	except Client.DoesNotExist:
+		print ("omg")
+		return home(request)
+	# except Provider.DoesNotExist, Client.DoesNotExist:
+	# 	print ('DoesNotExist')
+	# 	# return render(request, 'index.html', {})
+	# 	return HttpResponse(request, 'index.html', {})
