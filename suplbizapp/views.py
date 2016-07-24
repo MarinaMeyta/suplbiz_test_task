@@ -11,10 +11,22 @@ from .models import Region
 def home(request):
     return render(request, 'index.html', {})
 
-def company_p1(request):
-	provider = Provider.objects.get(p_company_name='company_p1')
-	regions = provider.p_regions.all()
-	return render(request, 'company_p1.html', {'regions': regions,})
+# def company_info(request, company_name):
+def company_info(request, company_name):
+	print (company_name)
+
+	provider = Provider.objects.get(p_company_name=company_name)
+ 	regions = provider.p_regions.all()
+	context = {
+		'company_name': company_name,
+		'regions': regions,
+	}
+	return render(request, 'company_info.html', context)
+	
+# 	print (company_name)
+# 	provider = Provider.objects.get(p_company_name=company_name)
+# 	regions = provider.p_regions.all()
+# 	return render(request, 'company_template.html', {'regions': regions,}, {'company_name': company_name})
 
 def  search(request):	
 	form = {}
@@ -35,16 +47,17 @@ def  search(request):
 			for region in client.c_regions.all():
 				for provider in providers_all:
 					if provider.p_regions.filter(region_id=region.region_id):
-						# print ("povider = ", provider)
+						print ("povider = ", provider)
 						providers_list.add(provider)
 
 			print (providers_list)
 			
-
 			template = loader.get_template('index.html')
 			context = RequestContext(request, {'providers_list': providers_list,})
 			return HttpResponse(template.render(context))
-			return home(request)
-	except Provider.DoesNotExist, Client.DoesNotExist:
-	# 	return render(request, 'index.html', {})
 		return home(request)
+
+	except Provider.DoesNotExist, Client.DoesNotExist:
+		print ('DoesNotExist')
+		# return render(request, 'index.html', {})
+		return HttpResponse(request, 'index.html', {})

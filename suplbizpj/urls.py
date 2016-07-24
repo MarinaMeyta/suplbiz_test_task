@@ -8,6 +8,6 @@ urlpatterns = patterns('',
 
     url(r'^$', 'suplbizapp.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/company_p1/', 'suplbizapp.views.company_p1', name='company_p1'),
+    url(r'^search/company_info/(?P<company_name>.*)', 'suplbizapp.views.company_info', name='company_info'),
     url(r'^search/', 'suplbizapp.views.search', name='search'),
 )

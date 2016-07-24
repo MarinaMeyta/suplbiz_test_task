@@ -21,9 +21,6 @@ class Provider(models.Model):
 	p_company_name = models.TextField(max_length=50)
 	p_regions = models.ManyToManyField(Region)
 
-	def get_url(self):
-		return (self.p_company_name + '/')
-
 	def __unicode__(self):
 		return u'%s %s' % (self.provider_id, self.p_company_name)
 		

@@ -25,11 +25,11 @@
             </form>
 
             <div>
-            {% for item in providers_list %}    
-                <ul>
-                    <li><a href="{{ item.get_url }}">{{ item.p_company_name }}</a></li>
-                </ul>
-            {% endfor %}
+                {% for item in providers_list %}   
+                    <ul>
+                        <li><a href="company_info/{{item.p_company_name}}">{{ item.p_company_name }}</a></li>
+                    </ul>
+                {% endfor %}
             </div>
 
            
