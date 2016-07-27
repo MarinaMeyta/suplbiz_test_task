@@ -5,14 +5,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- <link rel="stylesheet" href="{% static "css/base_css.css" %}"> -->
+        <link rel="stylesheet" href="{% static "css/base.css" %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
     
     <body>
-    	<div>
+    	<div class="container">
     		<h>Поставщик {{ company_name }}</h>
     	</div>
-    	<div>
+    	<div  class="container">
             <p>Регионы:</p>
     		<ul>
 	    	{% for item in regions %}
@@ -21,7 +23,11 @@
     		</ul>
     	</div>
     	<div>
-    		<h2><a href="/search/">back</a></h2>
+    		<a href="/search/" id="search" class="btn btn-default">Назад</a>
     	</div>
     </body>
  </html>
+
+ <script type="text/javascript">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</script>

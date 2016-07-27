@@ -4,36 +4,42 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <!-- <link rel="stylesheet" href="{% static "css/base_css.css" %}"> -->
+        <link rel="stylesheet" href="{% static "css/base.css" %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
         <body>
-
-
-<!--             {% if form.subject.errors %}
-                <ol>
-                    {% for error in form.subject.errors %}
-                        <li><strong>{{ error|escape }}</strong></li>
-                    {% endfor %}
-                </ol>
-            {% endif %} -->
-            <p>Введите название компании заказчика:</p>
-
-            <form action="/search/" method="post">
-                {% csrf_token %}
-                {{form}}
-                <input type="text" name="client" maxlength="50" value="{{form.client}}">
-                <button id="search" >Поиск</button>
-            </form>
-
-            <div>
-                <p>Доступные поставщики:</p>
-                {% for item in providers_list %}   
-                    <ul>
-                        <li><a href="company_info/{{item.p_company_name}}">{{ item.p_company_name }}</a></li>
-                    </ul>
-                {% endfor %}
+            <div class="container">
+                <form action="/search/" method="post" class="form-group">
+                    <!-- <div class="form-group"> -->
+                    {% csrf_token %}
+                    {{form}}
+                    <label for="inputClient">Заказчик:</label>
+                    <input type="text" class="form-control" id="inputClient" placeholder="Заказчик" name="client" maxlength="50" value="{{form.client}}">
+                    <button id="search" class="btn btn-default">Поиск</button>
+                </form>
             </div>
 
+            <div  class="container">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Доступные поставщики</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in providers_list %}   
+                        <tr>
+                            <th><a href="company_info/{{item.p_company_name}}">{{ item.p_company_name }}</a></th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
            
         </body>
 </html>
+
+<script type="text/javascript">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</script>
