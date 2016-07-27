@@ -94,4 +94,21 @@ p1.regions.all()
    
    $ python manage.py runserver
    
-   При переходе по адресу http://127.0.0.1:8000/ 
+   При переходе по адресу http://127.0.0.1:8000/, введите в форму поиска название компании заказчика и нажмите кнопку "Поиск": 
+   
+   ![alt-текст][1]
+   
+   В таблице "Доступные поставщики" будут выведены ссылки на информацию о поставщиках, доступных в регионах данного заказчика:
+   
+   ![alt-текст][2]
+   
+   При переходе на страницу поставщика в таблице ниже приведены все регионы, в которых работает поставщик:
+   
+   ![alt-текст][3]
+   
+   [1]: https://github.com/MarinaMeyta/suplbiz_test_task/blob/master/img_info/1.png
+   
+   [2]: https://github.com/MarinaMeyta/suplbiz_test_task/blob/master/img_info/2.png
+   
+   [3]: https://github.com/MarinaMeyta/suplbiz_test_task/blob/master/img_info/3.png
+   
