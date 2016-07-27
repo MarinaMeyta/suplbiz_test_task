@@ -1,4 +1,6 @@
-*.pyc 
+*.pyc
+/static
+/db 
 __pycache__
 suplbizenv 
 *.DS_Store
