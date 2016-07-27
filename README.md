@@ -87,3 +87,11 @@ p1.regions.all()
    $ python manage.py makemigrations
    
    $ python manage.py migrate
+
+5. Запуск сервера Django
+
+   Запуск сервера производится внутри виртуальной оболочки Python:
+   
+   $ python manage.py runserver
+   
+   При переходе по адресу http://127.0.0.1:8000/ 
