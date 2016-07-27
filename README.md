@@ -61,4 +61,28 @@ Django модели:
 
    $ pip install -r requirements.txt
    
-4. 
+4. Создание базы данных поставщиков, заказчиков и регионов (по умолчанию в качестве СУБД Django использует SQLite):
+
+   $ python manage.py makemigrations
+   
+   $ python manage.py migrate
+
+   Добавить сущности в БД можно, запустив shell и прописав Python команды на добавление поставщиков, заказчиков и регионов:
+
+   $ python manage.py shell
+   
+   Скрипт, приведенный ниже, добавит 2 региона ("Tomsk" и "Moskow") и провайдера "company_p1", работающего в этих регионах.
+
+```python
+from suplbizapp.models import Region
+from suplbizapp.models import Client
+from suplbizapp.models import Provider
+r1 = Region(region_name="Tomsk")
+r1.save()
+r2 = Region(region_name="Moskow")
+r2.save()
+p1 = Provider(company_name="company_p1")
+p1.save()
+p1.regions.add(r1, r2)
+p1.regions.all()
+```
