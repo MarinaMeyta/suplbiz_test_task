@@ -88,7 +88,7 @@ p1.regions.all()
    
    $ python manage.py migrate
 
-5. Запуск сервера Django
+### Запуск сервера Django
 
    Запуск сервера производится внутри виртуальной оболочки Python:
    
