@@ -45,13 +45,13 @@ Django модели:
    
    $ cd suplbiz\_test\_task
 
-2. Cоздайте командой virtualenv виртуальную оболочку, где <newenv> - название виртуальной оболочки (например, suplbizenv):
+2. Cоздайте командой virtualenv виртуальную оболочку, где suplbizenv - название виртуальной оболочки:
 
-   $ virtualenv --python=python2.7 <newenv>
+   $ virtualenv --python=python2.7 suplbizenv
 
    Для ее активации используйте команду:
    
-   $ source <newenv>/bin/activate
+   $ source suplbizenv/bin/activate
 
    Для деактивации виртуальной оболочки необходимо набрать в командной строке команду:
    
