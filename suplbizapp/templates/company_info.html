@@ -5,26 +5,30 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static "css/base.css" %}">
+        <link rel="stylesheet" href="{% static "base.css" %}">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
     
     <body>
     	<div class="container">
-    		<h>Поставщик {{ company_name }}</h>
-    	</div>
-    	<div  class="container">
-            <p>Регионы:</p>
-    		<ul>
-	    	{% for item in regions %}
-	    		<li>{{ item.region_name }}</li>
-	    	{% endfor %}
-    		</ul>
-    	</div>
-    	<div>
-    		<a href="/search/" id="search" class="btn btn-default">Назад</a>
-    	</div>
+            <legend>Поставщик {{ company_name }}</legend>
+            <table class="table table-bordered table-condensed">
+                    <thead>
+                      <tr  class="info">
+                        <th>Регионы</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in regions %}   
+                        <tr>
+                            <th>{{ item.region_name }}</th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+            </table>
+            <a href="/search/" id="back-btn" class="btn btn-default">Назад</a>
+        </div>
     </body>
  </html>
 

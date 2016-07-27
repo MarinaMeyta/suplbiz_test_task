@@ -4,26 +4,28 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="{% static "css/base.css" %}">
+        <link rel="stylesheet" href="{% static "base.css" %}">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     </head>
         <body>
             <div class="container">
-                <form action="/search/" method="post" class="form-group">
-                    <!-- <div class="form-group"> -->
-                    {% csrf_token %}
-                    {{form}}
-                    <label for="inputClient">Заказчик:</label>
-                    <input type="text" class="form-control" id="inputClient" placeholder="Заказчик" name="client" maxlength="50" value="{{form.client}}">
-                    <button id="search" class="btn btn-default">Поиск</button>
+                <form action="/search/" method="post" class="form-search">
+                    <div class="input-append">
+                        {% csrf_token %}
+                        {{form}}
+                        <!-- <label for="inputClient">Заказчик:</label> -->
+                        <legend>Заказчик (введите название компании):</legend>
+                        <input type="text" class="span2 search-query" id="inputClient" placeholder="Заказчик" name="client" maxlength="50" value="{{form.client}}">
+                        <button id="search-btn" class="btn btn-default">Поиск</button>
+                    </div>
                 </form>
             </div>
 
             <div  class="container">
-                <table class="table">
+                <table class="table table-bordered table-condensed">
                     <thead>
-                      <tr>
+                      <tr class="info">
                         <th>Доступные поставщики</th>
                       </tr>
                     </thead>
